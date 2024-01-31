@@ -2,7 +2,7 @@ version: "3.0"
 
 services:
   bento-box:
-    image: bentorobotics/bento-box:1.1
+    image: bentorobotics/rosbox:robot
     container_name: bento-box-ros
     user: root
     restart: always

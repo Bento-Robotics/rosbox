@@ -2,7 +2,7 @@ FROM ros:humble
 
 # Install dependencies & utilities
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install \
+RUN apt-get update && apt-get upgrade -y && apt-get install \
 		 btop \
 		 ros-humble-diagnostic-updater \
 		 ros-humble-diagnostic-aggregator \
