@@ -1,26 +1,8 @@
 # Bento Boxes
-**Containers for our robots!**
-
+**our robot container source**
 ---
 
-**bento-box:** [bentorobotics/bento-box](https://hub.docker.com/r/bentorobotics/bento-box)
+This repo contains the build files for our universal ROS container: [bentorobotics/rosbox](https://hub.docker.com/r/bentorobotics/rosbox)
 
----
-
-**(auto)starting container**
-> Container will automatically start on boot
-```bash
-cd <zyklop / bento-box>
- podman-compose up
-```
-
-**stopping/removing container**
-```bash
-cd <zyklop / bento-box>
- podman-compose down
-```
-
-> [!NOTE]
-> podman-compose isn't directly packaged with podman;
-> you may need to install `podman-compose` first
-
+Rosbox is best used with podman-compose,
+to implement automatically starting robot software.
