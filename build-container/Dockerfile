@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install \
 		 ros-humble-diagnostic-updater \
 		 ros-humble-diagnostic-aggregator \
 		 ros-humble-joy-linux \
+		 ros-humble-usb-cam \
+		 ros-humble-zbar-ros \
 		 -y && rm -rf /var/lib/apt/lists/*
 
 
@@ -18,6 +20,7 @@ WORKDIR /bento_ws
 RUN cd src &&\
 	 git clone https://github.com/Bento-Robotics/edu_robot &&\
 	 git clone https://github.com/Bento-Robotics/edu_robot_control &&\
+	 git clone https://github.com/Bento-Robotics/TunnelVision &&\
 	 cd ..
 
 # Build workspace
@@ -32,6 +35,3 @@ RUN echo -e "source /opt/ros/humble/setup.bash\nsource /bento_ws/install/setup.b
 # Add entry point
 COPY --chmod=555 ./entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
-
-# launch control node and joy interpreter
-CMD [ "ros2", "launch", "edu_robot", "bento-box.launch.py" ]

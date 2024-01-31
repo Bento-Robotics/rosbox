@@ -1,0 +1,22 @@
+/**:
+    ros__parameters:
+      video_device: "/dev/v4l/by-path/platform-70090000.xusb-usb-0:2.3:1.0-video-index0"
+      framerate: 30.0
+      io_method: "mmap"
+      frame_id: "camera"
+      pixel_format: "mjpeg2rgb"  # see usb_cam/supported_formats for list of supported formats
+      image_width: 800
+      image_height: 600
+      camera_name: "CV"
+      #camera_info_url: "package://usb_cam/config/camera_info.yaml"
+      brightness: 200
+      contrast: -1
+      saturation: -1
+      sharpness: -1
+      gain: -1
+      auto_white_balance: true
+      #white_balance: 4000
+      autoexposure: false
+      exposure: 50
+      #autofocus: false
+      focus: -1

@@ -1,4 +1,4 @@
-image_name = bento-box:1.0
+image_name = bento-box:1.1
 
 build-container:
 	podman build -t $(image_name) .
