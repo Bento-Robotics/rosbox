@@ -1,0 +1,23 @@
+version: "3.0"
+
+services:
+  bento-box:
+    image: bentorobotics/bento-box
+    container_name: bento-box-ros
+    user: root
+    restart: always
+    privileged: true
+    ipc: host
+    pid: host
+    mem_limit: 300mb
+    environment:
+        - EDU_ROBOT_NAMESPACE=bento
+    network_mode: "host"
+    volumes:
+      - './launch_content:/launch_content'
+      - '/dev:/dev'
+    devices:
+      - '/dev:/dev'
+    group_add:
+      - dialout
+    command: bash -c 'cd /launch_content; ros2 launch bento-box.launch.py'
