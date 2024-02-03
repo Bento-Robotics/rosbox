@@ -9,6 +9,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install \
 		 ros-humble-joy-linux \
 		 ros-humble-usb-cam \
 		 ros-humble-zbar-ros \
+                 ros-humble-camera-ros \
 		 -y && rm -rf /var/lib/apt/lists/*
 
 
