@@ -19,10 +19,18 @@ WORKDIR /bento_ws
 
 # Get sources
 RUN cd src &&\
+         git clone https://github.com/eclipse/mraa/ &&\
 	 git clone https://github.com/Bento-Robotics/edu_robot &&\
 	 git clone https://github.com/Bento-Robotics/edu_robot_control &&\
 	 git clone https://github.com/Bento-Robotics/TunnelVision &&\
 	 cd ..
+
+# Build MRAA
+RUN mkdir src/mraa/build &&\
+    cd src/mraa/build &&\
+    cmake .. &&\
+    make install &&\
+    cd -
 
 # Build workspace
 RUN bash -c " \
