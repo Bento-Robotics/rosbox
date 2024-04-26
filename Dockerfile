@@ -4,12 +4,14 @@ FROM ros:humble
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get upgrade -y && apt-get install \
 		 btop \
-		 ros-humble-diagnostic-updater \
-		 ros-humble-diagnostic-aggregator \
-		 ros-humble-joy-linux \
-		 ros-humble-usb-cam \
-		 ros-humble-zbar-ros \
-                 ros-humble-camera-ros \
+		 qt5ct \
+		 fonts-comfortaa \
+		 ros-humble-rqt \
+		 ros-humble-rqt-robot-monitor \
+		 ros-humble-rqt-reconfigure \
+		 ros-humble-rqt-tf-tree \
+		 ros-humble-rqt-image-view \
+		 ros-humble-image-transport-plugins \
 		 -y && rm -rf /var/lib/apt/lists/*
 
 
@@ -19,18 +21,8 @@ WORKDIR /bento_ws
 
 # Get sources
 RUN cd src &&\
-         git clone https://github.com/eclipse/mraa/ &&\
-	 git clone https://github.com/Bento-Robotics/edu_robot &&\
-	 git clone https://github.com/Bento-Robotics/edu_robot_control &&\
-	 git clone https://github.com/Bento-Robotics/TunnelVision &&\
+	 git clone https://github.com/EduArt-Robotik/edu_drive_ros2/ &&\
 	 cd ..
-
-# Build MRAA
-RUN mkdir src/mraa/build &&\
-    cd src/mraa/build &&\
-    cmake .. &&\
-    make install &&\
-    cd -
 
 # Build workspace
 RUN bash -c " \
@@ -42,5 +34,4 @@ RUN bash -c " \
 RUN echo -e "source /opt/ros/humble/setup.bash\nsource /bento_ws/install/setup.bash" >> ~/.bashrc
 
 # Add entry point
-COPY --chmod=555 ./entrypoint.sh /entrypoint.sh
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash" ]

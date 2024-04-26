@@ -1,0 +1,17 @@
+services:
+  operator:
+    build: .
+    container_name: rosbox_opr
+    privileged: true
+    stdin_open: true
+    tty: true
+    network_mode: host
+    volumes:
+      - /tmp/.X11-unix/:/tmp/.X11-unix/
+      - ~/.Xauthority:/root/.Xauthority:ro
+      #TODO: change to configs once possible:
+      - ./config/qt5ct.conf:/root/.config/qt5ct/qt5ct.conf:ro
+      - ./config/bento_colors.conf:/root/.config/qt5ct/colors/bento_colors.conf:ro
+    environment:
+      - DISPLAY=$DISPLAY
+      - QT_QPA_PLATFORMTHEME=qt5ct

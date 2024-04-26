@@ -1,8 +1,10 @@
-# Bento Boxes
+# rosbox:operator
 **our robot container source**
 ---
 
-This repo contains the build files for our universal ROS container: [bentorobotics/rosbox](https://hub.docker.com/r/bentorobotics/rosbox)
+This branch contains the build files for our ROS container, operator edition: [bentorobotics/rosbox](https://hub.docker.com/r/bentorobotics/rosbox)
 
-Rosbox is best used with podman-compose,
-to implement automatically starting robot software.
+rosbox:operator works on docker and podman,
+and contains the bare necessities for robot operators
+
+> Theming is done through `qt5ct`
