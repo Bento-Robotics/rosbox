@@ -1,4 +1,4 @@
-FROM ros:humble
+FROM docker.io/ros:humble
 
 # Install dependencies & utilities
 ENV DEBIAN_FRONTEND=noninteractive
@@ -9,6 +9,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install \
 		 #ros-humble-camera-ros \
      ros-humble-libcamera \
 		 ros-humble-zbar-ros \
+                 ros-humble-rplidar-ros \
      btop libcamera-tools can-utils \
 		 -y && rm -rf /var/lib/apt/lists/*
 
