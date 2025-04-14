@@ -1,4 +1,4 @@
-image_name = rosbox:robot
+image_name = rosbox:robot-jazzy
 
 build-container:
 	podman build -t $(image_name) .
